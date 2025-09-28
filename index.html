@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ayurvedic Traceability — Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Ayurvedic Traceability</h1>
+      <p class="tagline">A blockchain-based traceability system for Ayurvedic herbs — farmer portal, geo-tagging, QR per batch, admin dashboard & customer view.</p>
+      <nav class="quicklinks">
+        <a href="#farmer">Farmer Portal</a>
+        <a href="#admin">Admin Dashboard</a>
+        <a href="#customer">Customer View</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="project" class="card">
+      <h2>Project summary</h2>
+      <p>This demo page shows the frontend only. Farmers & collectors add herb details with geo-tagging; each batch has a QR code that consumers scan to view the journey from collection → processing → final product.</p>
+      <ul>
+        <li>Farmer portal (add herb batch, geo-tag)</li>
+        <li>Blockchain ledger (immutable entries — simulated)</li>
+        <li>QR generation per batch</li>
+        <li>Admin dashboard (review & verify)</li>
+        <li>Customer view (scan QR → trace history)</li>
+      </ul>
+    </section>
+
+    <section id="farmer" class="card">
+      <h3>Farmer / Collector (Demo)</h3>
+      <p>Quick demo to add a batch (frontend-only). Geo coordinates are captured from your browser (prompt will appear).</p>
+
+      <div class="form-row">
+        <label>Herb name</label>
+        <input id="herbName" placeholder="e.g., Ashwagandha" />
+      </div>
+
+      <div class="form-row">
+        <label>Batch ID</label>
+        <input id="batchId" placeholder="e.g., BATCH-001" />
+      </div>
+
+      <button id="captureBtn">Capture Geo & Generate QR</button>
+
+      <div id="demoResult" class="result"></div>
+    </section>
+
+    <section id="qr" class="card">
+      <h3>Generated QR (preview)</h3>
+      <div id="qrWrap" class="qrwrap">
+        <img id="qrImg" alt="QR preview" />
+        <div id="qrData" class="qr-data"></div>
+      </div>
+      <p class="note">This QR points to a demo deep-link (frontend-only). In full app it should point to the batch record URL or a tiny immutable proof (blockchain tx hash).</p>
+    </section>
+
+    <section id="admin" class="card">
+      <h3>Admin Dashboard (placeholder)</h3>
+      <p>Link placeholders — when you implement backend, these links will open actual portals.</p>
+      <div class="buttons">
+        <a class="btn" href="#">Open Admin</a>
+        <a class="btn" href="#">Open Farmer Portal</a>
+        <a class="btn" href="#">Open Customer Scan</a>
+      </div>
+    </section>
+
+    <section id="customer" class="card">
+      <h3>Customer view (scan simulation)</h3>
+      <p>Paste a batch ID to simulate scanning a QR and viewing provenance history.</p>
+      <div class="form-row">
+        <input id="scanInput" placeholder="Paste batch id e.g., BATCH-001" />
+        <button id="scanBtn">Simulate Scan</button>
+      </div>
+      <div id="traceOutput" class="result"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>Demo site — frontend only. Repo: <em>sih-255027-ayurvedic-traceability</em></small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
